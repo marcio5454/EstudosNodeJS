@@ -4,33 +4,54 @@ const app = require("express")();
 const port = 12345
 
 
-app.get("/", function(req, res){
-    res.send("<html>" + 
-    "<h2>Servidor rodando na porta " + port + "</h2>" + 
-    "<br>" + 
-    "<a href=\"sobre\">sobre</a>" + 
-    "</html>")
+var Usuario = require("./models/usuario")
+
+var usuario = Usuario.New(false)
+
+app.get("/", function(req, res) {
+    /*
+    res.send("<html>" +
+        "<h2>Servidor rodando na porta " + port + "</h2>" +
+        "<br>" +
+        "<a href=\"sobre\">sobre</a>" +
+        "</html>")
+        */
+    res.sendFile(__dirname + "/index.html")
 })
 
-app.get("/sobre", function(req, res){
-    res.send("<h1>Pagina Sobre</h1> <h2>aplicacao de teste!</h2>" + 
-    "<br>" + 
-    "<a href=\"/\">index</a>")
+app.get("/sobre", function(req, res) {
+    res.send("<h1>Pagina Sobre</h1> <h2>aplicacao de teste!</h2>" +
+        "<br>" +
+        "<a href=\"/\">index</a>")
 })
 
-app.get("/ola?:cargo?:nome", function(req, res){
-    res.send("olá, " + req.query.cargo + " " + req.query.nome)
+app.get("/ola?:cargo?:nome", function(req, res) {
+    res.send("olá, " + req.query.nome + "." +
+        "<br>" +
+        "Seu cargo é " + req.query.cargo)
 })
 
-app.get("/ola/:cargo/:nome", function(req, res){
-    res.send("olá, " + req.params.cargo +"  " + req.params.nome)
+app.get("/ola/:cargo/:nome", function(req, res) {
+    res.send("olá, " + req.params.cargo + "  " + req.params.nome)
 })
 
 
-var callback = function (){
+function show(action, folder) {
+    app.get("/" + action, function(req, res) {
+        res.sendFile(__dirname + "/" + (folder ? action + "/index" : action) + ".html")
+    })
+}
+
+show("teste");
+
+show("about", true);
+
+
+
+var callback = function() {
     console.log("Servidor em execução na porta " + port + "!")
 }
 
 
-app.listen(port, callback);
 
+app.listen(port, callback);

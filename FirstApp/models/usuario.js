@@ -10,6 +10,7 @@ function New(createDatabase) {
     if (createDatabase) {
         model.sync({ force: true });
     }
+    return model;
 }
 
 module.exports = {

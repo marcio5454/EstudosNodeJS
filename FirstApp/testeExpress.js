@@ -1,12 +1,15 @@
 //const express = require("express");
 //const app = express();
 const app = require("express")();
-const port = 12345
+const port = 1102
 
 
 var Usuario = require("./models/usuario")
 
 var usuario = Usuario.New(false)
+usuario.nome = "marcio";
+//usuario.
+
 
 app.get("/", function(req, res) {
     /*
@@ -31,13 +34,13 @@ app.get("/ola?:cargo?:nome", function(req, res) {
         "Seu cargo é " + req.query.cargo)
 })
 
-app.get("/ola/:cargo/:nome", function(req, res) {
+app.get("/ola/:cargo/:nome", (req, res) => {
     res.send("olá, " + req.params.cargo + "  " + req.params.nome)
 })
 
 
 function show(action, folder) {
-    app.get("/" + action, function(req, res) {
+    app.get("/" + action, (req, res) => {
         res.sendFile(__dirname + "/" + (folder ? action + "/index" : action) + ".html")
     })
 }
@@ -48,10 +51,6 @@ show("about", true);
 
 
 
-var callback = function() {
+app.listen(port, () => {
     console.log("Servidor em execução na porta " + port + "!")
-}
-
-
-
-app.listen(port, callback);
+});

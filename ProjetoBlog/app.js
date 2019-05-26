@@ -4,7 +4,7 @@ const app = express()
 const handlebars = require("express-handlebars")
 const bodyParser = require("body-parser")
 const routeAdmin = require("./routes/admin")
-    //const monggose = require("mongoose")
+const mongoose = require("mongoose")
 const path = require("path")
 
 
@@ -16,6 +16,11 @@ app.use(bodyParser.json())
 app.engine("handlebars", handlebars({ defaultLayout: "main" }))
 app.set("view engine", "handlebars")
     //mongoose
+mongoose.connect("http://localhost:37404/blogapp", () => {
+    console.log("conectado ao mongodb")
+}).catch((err) => {
+    console.log("Ocorreu um erro ao tentar se conectar ao mongodb: " + err)
+})
 
 
 //rotas

@@ -1,0 +1,21 @@
+<h1>Postagens</h1>
+
+<a href="/postagem/cad">Nova Postagem</a>
+<table>
+{{#each posts}}
+    <tr>
+        <td style="font-weight: bold; font-size: 20px">{{titulo}}</td>
+    <tr>
+    <tr>
+        <td style="font-size: 10px">{{createdAt}}</td>
+    <tr>
+    </tr>
+        <td>{{texto}}</td>
+    </tr>
+    </tr>
+        <td><a href="/postagem/del?id={{id}}"><button>excluir</button></a></td>
+    </tr>
+    <tr><td><hr></td></tr>
+{{/each}}
+</table>
+

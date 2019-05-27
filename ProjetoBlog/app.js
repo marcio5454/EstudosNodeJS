@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 app.engine("handlebars", handlebars({ defaultLayout: "main" }))
 app.set("view engine", "handlebars")
     //mongoose
-mongoose.connect("http://localhost:37404/blogapp", () => {
+mongoose.connect("mongodb://localhost/blogapp", { useNewUrlParser: true }).then(() => {
     console.log("conectado ao mongodb")
 }).catch((err) => {
     console.log("Ocorreu um erro ao tentar se conectar ao mongodb: " + err)

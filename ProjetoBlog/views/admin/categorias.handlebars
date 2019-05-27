@@ -1,3 +1,9 @@
 <h1>Lista de Categorias:</h1>
 <hr>
 <a href="/admin/categorias/add"><button class="btn btn-success">Nova Categoria</button></a>
+<br>
+{{#each categorias}}
+<spam>{{nome}}</spam>
+<br>
+<span>{{slug}}</span>
+{{/each}}

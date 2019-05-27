@@ -17,7 +17,8 @@ router.get("/posts", (req, res) => {
 
 
 router.get("/categorias", (req, res) => {
-    res.render("admin/categorias")
+    var categs = Categoria.find()
+    res.render("admin/categorias", { categorias: categs })
 })
 
 

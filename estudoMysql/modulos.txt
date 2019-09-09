@@ -1,0 +1,25 @@
+    
+//engine para faciliar o roteamento
+Express:
+npm install express --save
+
+
+//não precisar reiniciar o servidor quando houver mudanças
+Nodemon:
+npm install nodemon -g
+//"-g" instala o nodemon globalmente para não precisar instalar em cada aplicação 
+
+
+//banco de dados
+Sequelize:
+npm install --save sequelize
+//após instalar o sequelizer, instalar o modulo do mysql para o sequelize
+npm install --save mysql2
+
+//handlebars
+npm install --save express-handlebars
+
+//body-parser
+npm install --save body-parser
+
+

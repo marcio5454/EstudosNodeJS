@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="card-body">
+        <h4>Editar Postagem: </h4>
+        <form action="/admin/postagem/edit" method="POST">
+            <input type="hidden" name="id" value="{{postagem.id}}">
+            <label for="titulo" class="mt-4">Título: </label>
+            <input type="text" name="titulo" class="form-control" value="{{postagem.titulo}}" required>
+            <label for="slug"class="mt-4">Slug: </label>
+            <input type="text" name="slug" class="form-control"  value="{{postagem.slug}}" required>
+            <label for="descrição" class="mt-4">Descrição: </label>
+            <input type="text" name="descricao" class="form-control"  value="{{postagem.descricao}}" required>
+            <label for="conteudo" class="mt-4">Conteúdo: </label>
+            <textarea type="text" name="conteudo" class="form-control"  value="{{postagem.conteudo}}" required>{{postagem.conteudo}}</textarea>
+            <label for="categoria" class="mt-4">Categoria: </label>
+            <select name="categoria" class="custom-select">
+                {{#each categorias}}
+                    <option value="{{id}}" {{#if selected}} selected {{/if}} >{{nome}}</option>
+                {{else}}
+                    <option value="0">Nehuma Categoria cadastrada</option>
+                {{/each}}
+            </select>
+            <button type="submit" class="btn btn-success mt-4">Salvar Postagem</button>
+        </form>
+    </div>    
+</div>

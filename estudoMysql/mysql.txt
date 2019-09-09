@@ -1,0 +1,11 @@
+problemas com senha:
+//Se der problema de autenticacao, alterar senha
+ALTER USER 'root'@'localhost' IDENTIFIED BY ''; 
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ''
+
+//acessando o mysql via linha de comando:
+mysql -h localhost -u root -p
+//depois digite a senha
+//
+
+

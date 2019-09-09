@@ -1,0 +1,11 @@
+<h2 style="color: cadetblue">Meus Posts:</h2>
+<p>
+<a href="/cad">Adicionar postagem</a>
+<p>
+{{#each posts}}
+    <small>{{createdAt}}</small>
+    <h3 style="color: darkslategrey">{{titulo}}</h3>
+    <p>{{conteudo}} </p>
+    <p>
+    <hr>
+{{/each}}
